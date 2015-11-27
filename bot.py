@@ -141,7 +141,7 @@ def message_response(bot, ircmsg, actor, ircsock, channel, greeters):
         process_newcomers(bot,bot.newcomers, ircsock, channel, greeters, welcome=0)   # Process/check newcomers without welcoming them
 
     # if someone (other than the bot) joins the channel
-    if ircmsg.find("JOIN " + channel) != -1 and actor != bot.botnick:
+    if ircmsg.find("JOIN " + channel) != -1 or ircmsg.find("JOIN :" + channel) != -1 and actor != bot.botnick:
         if [actor.replace("_", "")] not in bot.known_nicks + [i.nick for i in bot.newcomers]:  # And they're new
             NewComer(actor, bot)
 
