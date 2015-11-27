@@ -101,11 +101,8 @@ def get_regex(options, botnick):
 # Welcomes the "person" passed to it.
 def welcome_nick(newcomer, ircsock, channel, channel_greeters):
     ircsock.send("PRIVMSG {0} :Welcome {1}!  The channel is pretty quiet "
-                 "right now, so I thought I'd say hello, and ping some people "
-                 "(like {2}) that you're here.  If no one responds for a "
-                 "while, try emailing us at hello@openhatch.org or just try "
-                 "coming back later.  FYI, you're now on my list of known "
-                 "nicknames, so I won't bother you again."
+                 "right now, so I thought I'd say hello. I'm a bot! Hopefully "
+                 "a human will drop by soon to chat."
                  "\n".format(channel, newcomer, greeter_string(channel_greeters)))
 
 # Checks and manages the status of newcomers.
@@ -188,8 +185,7 @@ def bot_hello(greeting, actor, ircsock, channel):
 # Explains what the bot is when queried.
 def bot_help(ircsock, channel):
     ircsock.send("PRIVMSG {} :I'm a bot!  I'm from here <https://github"
-                 ".com/shaunagm/oh-irc-bot>.  You can change my behavior by "
-                 "submitting a pull request or by talking to shauna"
+                 ".com/shaunagm/oh-irc-bot>."
                  ".\n".format(channel))
 
 # Returns a grammatically correct string of the channel_greeters.
